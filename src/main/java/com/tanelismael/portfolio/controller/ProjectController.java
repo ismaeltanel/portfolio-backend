@@ -3,6 +3,7 @@ package com.tanelismael.portfolio.controller;
 import com.tanelismael.portfolio.entity.Project;
 import com.tanelismael.portfolio.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,11 @@ public class ProjectController {
 
     @Autowired
     private ProjectService projectService;
+
+    @GetMapping("/ping")
+    public ResponseEntity<String> ping() {
+        return ResponseEntity.ok("pong");
+    }
 
     @GetMapping("/projects")
     public List<Project> getAllProjects(){
